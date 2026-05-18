@@ -1,0 +1,81 @@
+[workspace]
+release = false
+release_always = false
+changelog_update = false
+pr_labels = ["release"]
+max_analyze_commits = 2000
+
+[[package]]
+name = "use-sequence"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-residue"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-alphabet"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-nucleotide"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-amino-acid"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-genomic-range"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-annotation"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-alignment"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-sequence-id"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-feature"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-motif"
+release = true
+version_group = "rustuse-bioinformatics"
+
+[[package]]
+name = "use-bioinformatics"
+release = true
+version_group = "rustuse-bioinformatics"
+changelog_update = true
+changelog_path = "./CHANGELOG.md"
+changelog_include = [
+    "use-sequence",
+    "use-residue",
+    "use-alphabet",
+    "use-nucleotide",
+    "use-amino-acid",
+    "use-genomic-range",
+    "use-annotation",
+    "use-alignment",
+    "use-sequence-id",
+    "use-feature",
+    "use-motif",
+]

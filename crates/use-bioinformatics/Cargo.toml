@@ -1,0 +1,34 @@
+[package]
+name = "use-bioinformatics"
+description = "Facade crate for primitive RustUse bioinformatics vocabulary"
+publish = true
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-bioinformatics"
+keywords = ["bioinformatics", "sequence", "genomics", "biology", "rustuse"]
+categories = ["data-structures", "science"]
+
+[dependencies]
+use-alignment.workspace = true
+use-alphabet.workspace = true
+use-amino-acid.workspace = true
+use-annotation.workspace = true
+use-feature.workspace = true
+use-genomic-range.workspace = true
+use-motif.workspace = true
+use-nucleotide.workspace = true
+use-residue.workspace = true
+use-sequence.workspace = true
+use-sequence-id.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+
+[lints]
+workspace = true

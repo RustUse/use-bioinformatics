@@ -1,0 +1,24 @@
+[package]
+name = "use-motif"
+description = "Primitive biological motif vocabulary for RustUse"
+publish = true
+version.workspace = true
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+readme = "README.md"
+documentation = "https://docs.rs/use-motif"
+keywords = ["motif", "sequence", "pattern", "biology", "rustuse"]
+categories = ["data-structures", "science"]
+
+[dependencies]
+use-genomic-range.workspace = true
+
+[package.metadata.docs.rs]
+all-features = true
+
+[lints]
+workspace = true
