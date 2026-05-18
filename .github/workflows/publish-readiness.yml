@@ -21,7 +21,7 @@ jobs:
         use-sequence use-residue use-alphabet use-nucleotide use-amino-acid use-genomic-range use-annotation use-alignment use-sequence-id use-feature use-motif
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install stable Rust toolchain
         uses: actions-rust-lang/setup-rust-toolchain@v1
