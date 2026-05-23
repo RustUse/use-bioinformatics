@@ -132,7 +132,7 @@ pub struct Residue {
 impl Residue {
     /// Creates a residue from a symbol and kind.
     #[must_use]
-    pub fn new(symbol: char, kind: ResidueKind) -> Self {
+    pub const fn new(symbol: char, kind: ResidueKind) -> Self {
         Self {
             symbol: ResidueSymbol::from_char(symbol),
             kind,
@@ -141,25 +141,25 @@ impl Residue {
 
     /// Creates a gap residue represented by `-`.
     #[must_use]
-    pub fn gap() -> Self {
+    pub const fn gap() -> Self {
         Self::new('-', ResidueKind::Gap)
     }
 
     /// Creates an ambiguous residue with the supplied symbol.
     #[must_use]
-    pub fn ambiguous(symbol: char) -> Self {
+    pub const fn ambiguous(symbol: char) -> Self {
         Self::new(symbol, ResidueKind::Ambiguous)
     }
 
     /// Returns the residue symbol.
     #[must_use]
-    pub fn symbol(&self) -> ResidueSymbol {
+    pub const fn symbol(&self) -> ResidueSymbol {
         self.symbol
     }
 
     /// Returns the descriptive residue kind.
     #[must_use]
-    pub fn kind(&self) -> &ResidueKind {
+    pub const fn kind(&self) -> &ResidueKind {
         &self.kind
     }
 }

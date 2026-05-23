@@ -99,7 +99,7 @@ impl SequenceText {
     /// Empty sequences are only produced through this constructor so callers can make that choice
     /// visible in code.
     #[must_use]
-    pub fn empty() -> Self {
+    pub const fn empty() -> Self {
         Self(String::new())
     }
 
@@ -111,7 +111,7 @@ impl SequenceText {
 
     /// Returns true when the sequence text is empty.
     #[must_use]
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
 
@@ -200,7 +200,7 @@ impl BioSequence {
 
     /// Creates an explicitly empty sequence with the given kind.
     #[must_use]
-    pub fn empty(kind: SequenceKind) -> Self {
+    pub const fn empty(kind: SequenceKind) -> Self {
         Self {
             kind,
             text: SequenceText::empty(),
@@ -209,13 +209,13 @@ impl BioSequence {
 
     /// Returns the descriptive sequence kind.
     #[must_use]
-    pub fn kind(&self) -> &SequenceKind {
+    pub const fn kind(&self) -> &SequenceKind {
         &self.kind
     }
 
     /// Returns the owned sequence text wrapper.
     #[must_use]
-    pub fn text(&self) -> &SequenceText {
+    pub const fn text(&self) -> &SequenceText {
         &self.text
     }
 
@@ -233,7 +233,7 @@ impl BioSequence {
 
     /// Returns true when the sequence text is empty.
     #[must_use]
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.text.is_empty()
     }
 

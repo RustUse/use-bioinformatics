@@ -133,7 +133,7 @@ pub struct VersionedAccession {
 impl VersionedAccession {
     /// Creates a versioned accession without a version component.
     #[must_use]
-    pub fn without_version(accession: Accession) -> Self {
+    pub const fn without_version(accession: Accession) -> Self {
         Self {
             accession,
             version: None,
@@ -157,7 +157,7 @@ impl VersionedAccession {
 
     /// Returns the base accession.
     #[must_use]
-    pub fn accession(&self) -> &Accession {
+    pub const fn accession(&self) -> &Accession {
         &self.accession
     }
 
@@ -180,13 +180,13 @@ impl fmt::Display for VersionedAccession {
 /// Descriptive source labels for sequence identifiers.
 #[derive(Clone, Debug, Eq, Hash, Ord, PartialEq, PartialOrd)]
 pub enum SequenceSource {
-    /// GenBank source label.
+    /// `GenBank` source label.
     GenBank,
-    /// RefSeq source label.
+    /// `RefSeq` source label.
     RefSeq,
     /// Ensembl source label.
     Ensembl,
-    /// UniProt source label.
+    /// `UniProt` source label.
     UniProt,
     /// Protein Data Bank source label.
     Pdb,

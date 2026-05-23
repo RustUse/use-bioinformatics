@@ -191,7 +191,7 @@ pub struct SequenceFeature {
 impl SequenceFeature {
     /// Creates a sequence feature.
     #[must_use]
-    pub fn new(kind: FeatureKind, name: FeatureName) -> Self {
+    pub const fn new(kind: FeatureKind, name: FeatureName) -> Self {
         Self {
             kind,
             name,
@@ -224,31 +224,31 @@ impl SequenceFeature {
 
     /// Returns the feature kind.
     #[must_use]
-    pub fn kind(&self) -> &FeatureKind {
+    pub const fn kind(&self) -> &FeatureKind {
         &self.kind
     }
 
     /// Returns the feature name.
     #[must_use]
-    pub fn name(&self) -> &FeatureName {
+    pub const fn name(&self) -> &FeatureName {
         &self.name
     }
 
     /// Returns the optional feature identifier.
     #[must_use]
-    pub fn id(&self) -> Option<&FeatureId> {
+    pub const fn id(&self) -> Option<&FeatureId> {
         self.id.as_ref()
     }
 
     /// Returns the optional genomic range.
     #[must_use]
-    pub fn range(&self) -> Option<&GenomicRange> {
+    pub const fn range(&self) -> Option<&GenomicRange> {
         self.range.as_ref()
     }
 
     /// Returns deterministic feature attributes.
     #[must_use]
-    pub fn attributes(&self) -> &AnnotationSet {
+    pub const fn attributes(&self) -> &AnnotationSet {
         &self.attributes
     }
 }

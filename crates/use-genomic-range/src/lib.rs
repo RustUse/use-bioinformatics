@@ -77,7 +77,6 @@ impl FromStr for Strand {
             "+" | "forward" | "plus" => Self::Forward,
             "-" | "reverse" | "minus" => Self::Reverse,
             "." | "unstranded" | "none" => Self::Unstranded,
-            "unknown" | "?" | "" => Self::Unknown,
             _ => Self::Unknown,
         };
 
@@ -156,7 +155,7 @@ impl GenomicRange {
 
     /// Sets the strand without changing positions.
     #[must_use]
-    pub fn with_strand(mut self, strand: Strand) -> Self {
+    pub const fn with_strand(mut self, strand: Strand) -> Self {
         self.strand = strand;
         self
     }
@@ -182,13 +181,13 @@ impl GenomicRange {
 
     /// Returns the strand.
     #[must_use]
-    pub fn strand(&self) -> &Strand {
+    pub const fn strand(&self) -> &Strand {
         &self.strand
     }
 
     /// Returns the coordinate system.
     #[must_use]
-    pub fn coordinate_system(&self) -> &CoordinateSystem {
+    pub const fn coordinate_system(&self) -> &CoordinateSystem {
         &self.coordinate_system
     }
 
@@ -197,7 +196,7 @@ impl GenomicRange {
     /// No coordinate conversion is performed. For unknown and custom coordinate systems, the
     /// helper returns `end - start` after constructor validation.
     #[must_use]
-    pub fn len(&self) -> u64 {
+    pub const fn len(&self) -> u64 {
         match &self.coordinate_system {
             CoordinateSystem::OneBasedClosed => self.end.value() - self.start.value() + 1,
             CoordinateSystem::ZeroBasedHalfOpen
@@ -208,7 +207,7 @@ impl GenomicRange {
 
     /// Returns true when the coordinate-system-specific length is zero.
     #[must_use]
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.len() == 0
     }
 }

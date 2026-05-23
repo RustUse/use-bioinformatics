@@ -177,7 +177,7 @@ pub struct MotifHit {
 impl MotifHit {
     /// Creates motif hit metadata with no location.
     #[must_use]
-    pub fn new(name: MotifName, pattern: MotifPattern, kind: MotifKind) -> Self {
+    pub const fn new(name: MotifName, pattern: MotifPattern, kind: MotifKind) -> Self {
         Self {
             name,
             pattern,
@@ -214,31 +214,31 @@ impl MotifHit {
 
     /// Returns the motif name.
     #[must_use]
-    pub fn name(&self) -> &MotifName {
+    pub const fn name(&self) -> &MotifName {
         &self.name
     }
 
     /// Returns the motif pattern.
     #[must_use]
-    pub fn pattern(&self) -> &MotifPattern {
+    pub const fn pattern(&self) -> &MotifPattern {
         &self.pattern
     }
 
     /// Returns the motif kind.
     #[must_use]
-    pub fn kind(&self) -> &MotifKind {
+    pub const fn kind(&self) -> &MotifKind {
         &self.kind
     }
 
     /// Returns the optional genomic range.
     #[must_use]
-    pub fn genomic_range(&self) -> Option<&GenomicRange> {
+    pub const fn genomic_range(&self) -> Option<&GenomicRange> {
         self.genomic_range.as_ref()
     }
 
     /// Returns the optional sequence range as `(start, end)`.
     #[must_use]
-    pub fn sequence_range(&self) -> Option<(usize, usize)> {
+    pub const fn sequence_range(&self) -> Option<(usize, usize)> {
         self.sequence_range
     }
 }

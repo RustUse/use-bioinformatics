@@ -137,7 +137,7 @@ pub struct BioAlphabet {
 impl BioAlphabet {
     /// Creates an alphabet from a kind and symbol set.
     #[must_use]
-    pub fn new(kind: AlphabetKind, symbols: AlphabetSymbolSet) -> Self {
+    pub const fn new(kind: AlphabetKind, symbols: AlphabetSymbolSet) -> Self {
         Self { kind, symbols }
     }
 
@@ -197,13 +197,13 @@ impl BioAlphabet {
 
     /// Returns the descriptive alphabet kind.
     #[must_use]
-    pub fn kind(&self) -> &AlphabetKind {
+    pub const fn kind(&self) -> &AlphabetKind {
         &self.kind
     }
 
     /// Returns the alphabet symbols.
     #[must_use]
-    pub fn symbols(&self) -> &AlphabetSymbolSet {
+    pub const fn symbols(&self) -> &AlphabetSymbolSet {
         &self.symbols
     }
 
@@ -220,8 +220,9 @@ impl BioAlphabet {
     }
 
     fn from_static(kind: AlphabetKind, symbols: &str) -> Self {
-        let symbols =
-            AlphabetSymbolSet::from_symbols(symbols).expect("static alphabet is non-empty");
+        let symbols = AlphabetSymbolSet {
+            symbols: symbols.chars().collect(),
+        };
         Self::new(kind, symbols)
     }
 }

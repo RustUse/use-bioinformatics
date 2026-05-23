@@ -163,7 +163,7 @@ impl AlignedSequence {
 
     /// Returns true when the aligned text is empty.
     #[must_use]
-    pub fn is_empty(&self) -> bool {
+    pub const fn is_empty(&self) -> bool {
         self.0.is_empty()
     }
 }
@@ -193,7 +193,7 @@ pub struct AlignmentSummary {
 impl AlignmentSummary {
     /// Creates an alignment summary with no score or sequences.
     #[must_use]
-    pub fn new(kind: AlignmentKind) -> Self {
+    pub const fn new(kind: AlignmentKind) -> Self {
         Self {
             kind,
             score: None,
@@ -203,7 +203,7 @@ impl AlignmentSummary {
 
     /// Sets the alignment score.
     #[must_use]
-    pub fn with_score(mut self, score: AlignmentScore) -> Self {
+    pub const fn with_score(mut self, score: AlignmentScore) -> Self {
         self.score = Some(score);
         self
     }
@@ -217,13 +217,13 @@ impl AlignmentSummary {
 
     /// Returns the alignment kind.
     #[must_use]
-    pub fn kind(&self) -> &AlignmentKind {
+    pub const fn kind(&self) -> &AlignmentKind {
         &self.kind
     }
 
     /// Returns the optional alignment score.
     #[must_use]
-    pub fn score(&self) -> Option<AlignmentScore> {
+    pub const fn score(&self) -> Option<AlignmentScore> {
         self.score
     }
 
@@ -235,7 +235,7 @@ impl AlignmentSummary {
 
     /// Returns the number of aligned sequences.
     #[must_use]
-    pub fn sequence_count(&self) -> usize {
+    pub const fn sequence_count(&self) -> usize {
         self.sequences.len()
     }
 }
@@ -279,7 +279,7 @@ mod tests {
     fn constructs_alignment_score() {
         let score = AlignmentScore::new(42.5);
 
-        assert_eq!(score.value(), 42.5);
+        assert!((score.value() - 42.5).abs() < f64::EPSILON);
     }
 
     #[test]

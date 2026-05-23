@@ -148,7 +148,11 @@ impl Nucleotide {
     ///
     /// Recognized symbols are `A`, `C`, `G`, `T`, `U`, `-`, and `N` in either case for letters.
     /// Other symbols return [`NucleotideParseError::InvalidSymbol`].
-    pub fn parse_symbol(symbol: char) -> Result<Self, NucleotideParseError> {
+    ///
+    /// # Errors
+    ///
+    /// Returns [`NucleotideParseError::InvalidSymbol`] when the symbol is not recognized.
+    pub const fn parse_symbol(symbol: char) -> Result<Self, NucleotideParseError> {
         match symbol.to_ascii_uppercase() {
             'A' => Ok(Self::Adenine),
             'C' => Ok(Self::Cytosine),
@@ -178,7 +182,7 @@ impl Nucleotide {
 
     /// Returns the descriptive nucleotide kind.
     #[must_use]
-    pub fn kind(self) -> NucleotideKind {
+    pub const fn kind(self) -> NucleotideKind {
         match self {
             Self::Thymine => NucleotideKind::Dna,
             Self::Uracil => NucleotideKind::Rna,

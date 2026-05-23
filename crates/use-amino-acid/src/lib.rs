@@ -154,7 +154,11 @@ impl AminoAcid {
     /// Parses a common one-letter amino-acid symbol.
     ///
     /// Recognized symbols are the 20 common one-letter codes, `X` for ambiguous, and `*` for stop.
-    pub fn parse_symbol(symbol: char) -> Result<Self, AminoAcidParseError> {
+    ///
+    /// # Errors
+    ///
+    /// Returns [`AminoAcidParseError::InvalidSymbol`] when the symbol is not recognized.
+    pub const fn parse_symbol(symbol: char) -> Result<Self, AminoAcidParseError> {
         match symbol.to_ascii_uppercase() {
             'A' => Ok(Self::Alanine),
             'R' => Ok(Self::Arginine),
@@ -214,7 +218,7 @@ impl AminoAcid {
 
     /// Returns the descriptive amino-acid kind.
     #[must_use]
-    pub fn kind(self) -> AminoAcidKind {
+    pub const fn kind(self) -> AminoAcidKind {
         match self {
             Self::Stop => AminoAcidKind::Stop,
             Self::Ambiguous(_) => AminoAcidKind::Ambiguous,

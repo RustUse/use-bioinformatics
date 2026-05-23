@@ -1,6 +1,6 @@
 # use-bioinformatics
 
-Facade crate for primitive RustUse bioinformatics vocabulary.
+Facade crate for primitive `RustUse` bioinformatics vocabulary.
 
 `use-bioinformatics` re-exports focused crates for biological sequences, residues, alphabets, nucleotides, amino acids, genomic ranges, features, annotations, motifs, alignments, and sequence identifiers.
 

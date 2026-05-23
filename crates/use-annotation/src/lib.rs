@@ -132,19 +132,19 @@ pub struct Annotation {
 impl Annotation {
     /// Creates an annotation from a key and value.
     #[must_use]
-    pub fn new(key: AnnotationKey, value: AnnotationValue) -> Self {
+    pub const fn new(key: AnnotationKey, value: AnnotationValue) -> Self {
         Self { key, value }
     }
 
     /// Returns the annotation key.
     #[must_use]
-    pub fn key(&self) -> &AnnotationKey {
+    pub const fn key(&self) -> &AnnotationKey {
         &self.key
     }
 
     /// Returns the annotation value.
     #[must_use]
-    pub fn value(&self) -> &AnnotationValue {
+    pub const fn value(&self) -> &AnnotationValue {
         &self.value
     }
 
@@ -164,7 +164,7 @@ pub struct AnnotationSet {
 impl AnnotationSet {
     /// Creates an empty annotation set.
     #[must_use]
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self {
             values: BTreeMap::new(),
         }
